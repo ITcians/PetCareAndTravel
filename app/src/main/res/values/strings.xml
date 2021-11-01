@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Pet CAT</string>
+    <string name="pet_care_travel"><![CDATA[Pet Care & Travel]]></string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="reset_password">Reset Password ?</string>
+    <string name="login">Login</string>
+    <string name="didn_t_have_account_create_one">Didn\'t have account? Create one</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="create_account">Create Account</string>
+    <string name="select_account_type">Select Account Type</string>
+    <string name="permissions">We need these permission to give you a suitable and smooth experience of app kindly allow it</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="add_pet">Add Pet</string>
+    <string name="shop">Shop</string>
+    <string name="profile">Profile</string>
+    <string name="pets">Pets</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="orders">Orders</string>
+    <string name="settings">Settings</string>
+    <string name="pet_name">Pet Name</string>
+    <string name="pet_age">Pet Age</string>
+    <string name="pet_specie">Pet Specie</string>
+    <string name="pet_price">Pet Price</string>
+    <string name="pet_height">Pet Height</string>
+    <string name="pet_weight">Pet Weight</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="other">Other</string>
+    <string name="add_my_pet">Add My Pet</string>
+    <string name="pet_address">Pet Address</string>
+    <string name="buy">Buy</string>
+    <string name="pet_gender">Pet Gender</string>
+
+    <string name="my_pets">My Pets</string>
+    <string name="pending">Pending</string>
+    <string name="call">Call</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="pet_location">Pet Location</string>
+    <string name="your_location">Your Location</string>
+    <string name="save">Save</string>
+    <string name="search_pets_doctors">Search Pets , Doctors</string>
+</resources>
