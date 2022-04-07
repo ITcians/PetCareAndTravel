@@ -1,9 +1,10 @@
 # PetCareAndTravel
 <!DOCTYPE html>
 <html lang="en">
-
-<body style="color: whitesmoke; padding: 16px;">
-    <style>
+<svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        <div xmlns="http://www.w3.org/1999/xhtml">
+                <style>
     h3,
     h4,
     h5,
@@ -24,6 +25,11 @@
         color: #9264EB;
     }
 </style>
+
+              </div>
+    </foreignObject>
+</svg>
+<body style="color: whitesmoke; padding: 16px;">
 
     <h3>
 Pet Care and Travel app for android</h3>
@@ -56,6 +62,6 @@ Pet Care and Travel app for android</h3>
         <img src='https://cdn-icons-png.flaticon.com/512/1384/1384060.png' width="30" height="30">
     </a>
     <hr>
-    <img src='https://itcians.com/wp-content/uploads/2022/02/Logo-of-ITcians-01-scaled.jpg' style="width:90%;height:50%">
+    <img src='https://itcians.com/wp-content/uploads/2022/02/Logo-of-ITcians-01-scaled.jpg' style="width:100%;height:50%">
     <h3>Made by <a href='https://itcians.com'>ITcians</a></h3><br>
 </body>
