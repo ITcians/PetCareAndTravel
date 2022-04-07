@@ -1,4 +1,11 @@
 # PetCareAndTravel
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+<foreignObject width="100" height="100">
+    <div xmlns="http://www.w3.org/1999/xhtml">
+        <ul>
+            <li>text</li>
+        </ul>
+
 
     <h3>Pet Care and Travel app for android</h3>
     <p>PetCAT is an anroid app made on Java with Laravel PHP server. Basically Pet CAT (Care and Travel) focus pet
@@ -69,3 +76,6 @@
     <img src='https://itcians.com/wp-content/uploads/2022/02/Logo-of-ITcians-01-scaled.jpg'
         style="width:100%;height:50%">
     <h3>Made by <a href='https://itcians.com'>ITcians</a></h3><br>
+    </div>
+</foreignObject>
+</svg>
