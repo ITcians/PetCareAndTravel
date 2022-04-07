@@ -4,8 +4,7 @@
 
 <body style="color: whitesmoke; padding: 16px;">
 
-    <h3 >
-Pet Care and Travel app for android</h3>
+    <h3>Pet Care and Travel app for android</h3>
     <p>PetCAT is an anroid app made on Java with Laravel PHP server. Basically Pet CAT (Care and Travel) focus pet management , health ,hygiene and sales.</p>
     <hr>
     <h4 >FEATURES</h4>
@@ -19,9 +18,44 @@ Pet Care and Travel app for android</h3>
         </thead>
         <tbody>
             <tr>
-                <td>AUTH</td>
+                <td>Buyer / Seller</td>
                 <td>
-                    Authentication
+                    You can create both buyer and seller accounts for pet sales.
+                </td>
+                
+                <td>Pet Health</td>
+                <td>
+Manage pet health by medication and vaccine records and remiders
+                </td>
+                
+                <td>Pet Hygiene</td>
+                <td>
+Manage pet hygiene records like nail nail cuting baithing.
+                </td>
+                
+                <td>Sell Pet</td>
+                <td>
+Sell your pet
+                </td>
+                
+                <td>Buy Pet</td>
+                <td>
+Buy a pet
+                </td>
+                
+                <td>Arange Travel for Pet</td>
+                <td>
+Select pick up and drop up location to arrange travel with direct whatsapp chat with admin
+                </td>
+                
+                <td>Doctors Search</td>
+                <td>
+Search Doctors for pets
+                </td>
+                
+                <td>Admin Portal</td>
+                <td>
+Moniter and manage all activities and sales from admin portal
                 </td>
             </tr>
         </tbody>
