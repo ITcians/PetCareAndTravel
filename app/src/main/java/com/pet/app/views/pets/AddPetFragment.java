@@ -17,8 +17,10 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.google.android.material.textfield.TextInputLayout;
 import com.pet.app.R;
+import com.pet.app.controller.petController.PetController;
 import com.pet.app.models.PetModel;
 import com.pet.app.resources.Dry;
+import com.pet.app.resources.LocationPrefs;
 import com.pet.app.views.map.MapsActivity;
 
 import java.io.FileNotFoundException;
@@ -43,7 +45,7 @@ public class AddPetFragment extends Fragment {
 
     private final Handler handler = new Handler();
     private CircleImageView petImage;
-    TextInputLayout petName, petAge, petSpecie, petPrice, petHeight, petWeight;
+    TextInputLayout petName, petAge, petSpecie, petHeight, petWeight, petContact;
     RadioGroup genderGroup;
 
     @Override
@@ -51,6 +53,8 @@ public class AddPetFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_add_pet, container, false);
+
+
         new Thread(() -> init(view)).start();
         return view;
     }
@@ -60,12 +64,14 @@ public class AddPetFragment extends Fragment {
         petName = view.findViewById(R.id.addPetName);
         petAge = view.findViewById(R.id.addPetAge);
         petSpecie = view.findViewById(R.id.addPetSpecie);
-        petPrice = view.findViewById(R.id.addPetPrice);
+
         petWeight = view.findViewById(R.id.addPetWeight);
+        petContact = view.findViewById(R.id.addPetContact);
         petHeight = view.findViewById(R.id.addPetHeight);
         petImage.setOnClickListener(selectImage);
         genderGroup = view.findViewById(R.id.addPetGender);
         view.findViewById(R.id.addPetButton).setOnClickListener(savePet);
+        view.findViewById(R.id.setLocation).setOnClickListener(saveLocation);
     }
 
     View.OnClickListener selectImage = view -> {
@@ -114,12 +120,7 @@ public class AddPetFragment extends Fragment {
         } else
             petSpecie.setError(null);
 
-        petModel.setPetPrice(petPrice.getEditText().getText().toString());
-        if (petModel.getPetPrice() == null || petModel.getPetPrice().length() < 1 || petModel.getPetPrice().length() > 8) {
-            petPrice.setError("Invalid price!");
-            return;
-        } else
-            petPrice.setError(null);
+        petModel.setPetPrice(String.valueOf(0));
 
         petModel.setPetHeight(petHeight.getEditText().getText().toString());
         if (petModel.getPetHeight() == null || petModel.getPetHeight().length() < 1 || petModel.getPetHeight().length() > 8) {
@@ -134,17 +135,42 @@ public class AddPetFragment extends Fragment {
             return;
         } else
             petWeight.setError(null);
+        petModel.setContact(petContact.getEditText().getText().toString());
+        if (petModel.getContact() == null || petModel.getContact().length() != 11 || petModel.getContact().charAt(0) != '0') {
+            petContact.setError("Invalid number! Ex 03000000000");
+            return;
+        } else
+            petContact.setError(null);
 
         if (genderGroup.getCheckedRadioButtonId() == -1) {
             toast("Please select gender!");
             return;
         }
 
+
         petModel.setPetGender(Dry.getInstance().resolveGender(genderGroup.getCheckedRadioButtonId()));
-        //upload
-        //  new PetController(getActivity()).uploadPet(petModel);
+
+
+        petModel.setLat((float) LocationPrefs.getSession(getContext()).getLatitude());
+        petModel.setLang((float) LocationPrefs.getSession(getContext()).getLongitude());
+
+
+        if (petModel.getLat() == 0 || petModel.getLang() == 0) {
+            Toast.makeText(getContext(), "Please Select Your Location", Toast.LENGTH_SHORT).show();
+        } else {
+            //upload
+            new PetController(getActivity()).uploadPet(petModel);
+        }
+
+
+    };
+    // Pick Location
+    View.OnClickListener saveLocation = view ->
+    {
         ActivityCompat.startActivity(getContext(),
                 new Intent(getContext(), MapsActivity.class), null);
+
+        //
 
     };
 
@@ -169,4 +195,5 @@ public class AddPetFragment extends Fragment {
     void toast(String msg) {
         handler.post(() -> Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show());
     }
+
 }

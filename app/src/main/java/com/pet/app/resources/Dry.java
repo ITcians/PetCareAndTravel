@@ -16,6 +16,7 @@ import android.util.Base64;
 
 import androidx.core.app.ActivityCompat;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.pet.app.R;
 
 import java.io.ByteArrayOutputStream;
@@ -49,18 +50,19 @@ public class Dry {
         List<String> accountTypes = new ArrayList<>();
         accountTypes.add("Buyer");
         accountTypes.add("Seller");
-        accountTypes.add("Doctor");
+
         return accountTypes;
     }
 
 
     public boolean hasPermissions(Context context) {
-        String[] perms = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.ACCESS_FINE_LOCATION};
+        String[] perms = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.SET_ALARM, Manifest.permission.CALL_PHONE};
         return EasyPermissions.hasPermissions(context, perms);
     }
 
     public void methodRequiresTwoPermission(Activity context) {
-        String[] perms = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.ACCESS_FINE_LOCATION};
+        String[] perms = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.SET_ALARM,
+                Manifest.permission.CALL_PHONE};
         if (!EasyPermissions.hasPermissions(context, perms)) {
             // Do not have permissions, request them now
             EasyPermissions.requestPermissions(context, context.getString(R.string.permissions),
@@ -89,7 +91,7 @@ public class Dry {
         InputStream stream = activity.getContentResolver().openInputStream(Uri.parse(image));
         Bitmap bitmap = BitmapFactory.decodeStream(stream);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 30, byteArrayOutputStream);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 20, byteArrayOutputStream);
         byte[] arr = byteArrayOutputStream.toByteArray();
         return Base64.encodeToString(arr, Base64.DEFAULT);
     }
@@ -129,13 +131,42 @@ public class Dry {
             return "Other";
     }
 
+    public int resolveGender(String gender) {
+        if (gender.equals("Male"))
+            return 1;
+        else if (gender.equals("Female"))
+            return 2;
+        else
+            return 3;
+    }
 
-    public static Address getAddressFromLocation(Location latLng, Activity activity) throws IOException {
+
+    public static Address getAddressFromLocation(double lat, double lang, Activity activity) throws IOException {
         Geocoder geocoder = new Geocoder(activity, Locale.getDefault());
-        List<Address> addresses = geocoder.getFromLocation(latLng.getLatitude(), latLng.getLongitude(), 1);
+        List<Address> addresses = geocoder.getFromLocation(lat, lang, 1);
         if (addresses.size() > 0) {
             return addresses.get(0);
         }
         return null;
     }
+
+    public static Address getAddressFromName(String name, Activity activity) throws IOException {
+        Geocoder geocoder = new Geocoder(activity, Locale.getDefault());
+        List<Address> addresses = geocoder.getFromLocationName(name, 1);
+        if (addresses.size() > 0) {
+            return addresses.get(0);
+        }
+        return null;
+    }
+
+    public static Address getAddressFromLocation(LatLng latLng, Context activity) throws IOException {
+        Geocoder geocoder = new Geocoder(activity, Locale.getDefault());
+        List<Address> addresses = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1);
+        if (addresses.size() > 0) {
+            return addresses.get(0);
+        }
+        return null;
+    }
+
+
 }

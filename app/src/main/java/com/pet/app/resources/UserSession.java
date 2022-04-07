@@ -65,11 +65,12 @@ public class UserSession {
     }
 
     public String getToken() {
-        return preferences.getString("token", "sfs");
+        return preferences.getString("token", null);
     }
 
     public void setToken(String token) {
         this.token = token;
+        System.out.println("KAJAL "+token);
         preferences.edit().putString("token", token).apply();
     }
 

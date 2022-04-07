@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.pet.app">
+
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -12,6 +13,8 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -21,8 +24,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
-        <activity android:name=".search.SearchActivity"></activity>
-        <activity android:name=".views.hegiene.HegieneActivity" />
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -36,18 +38,37 @@
             android:value="@string/google_maps_key" />
 
         <activity
+            android:name=".views.travel.TravelActivity"
+            android:exported="false"
+            android:label="@string/title_activity_travel" />
+        <activity
+            android:name=".views.pets.EditPetActivity"
+            android:exported="false" />
+        <activity android:name=".search.SearchActivity" />
+        <activity android:name=".views.hegiene.HegieneActivity" />
+        <activity
             android:name=".views.map.MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".views.home.HomeActivity" />
         <activity android:name=".views.signup.SignUpActivity" />
         <activity android:name=".views.login.LoginActivity" />
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".controller.FCMService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

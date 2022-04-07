@@ -18,13 +18,14 @@ import androidx.core.app.ActivityCompat;
 import com.bumptech.glide.Glide;
 import com.google.android.material.textfield.TextInputLayout;
 import com.pet.app.R;
-import com.pet.app.controller.UserController;
+import com.pet.app.controller.userController.UserController;
 import com.pet.app.models.UserModel;
 import com.pet.app.resources.Dry;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class SignUpActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity
+{
 
     ArrayAdapter<String> adapter;
     TextInputLayout nameLayout, emailLayout, passwordLayout;
@@ -123,10 +124,12 @@ public class SignUpActivity extends AppCompatActivity {
             Toast.makeText(this, "Please select account type!", Toast.LENGTH_SHORT).show();
             return;
         }
+
         //All clear
         progressDialog.setMessage("Creating account please wait..");
         progressDialog.show();
-        new Thread(() -> controller.createAccount(user, progressDialog)).start();
+        new Thread(() -> controller.createAccount(user,progressDialog)).start();
 
     };
+
 }

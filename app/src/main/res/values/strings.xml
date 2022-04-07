@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Pet CAT</string>
-    <string name="pet_care_travel"><![CDATA[Pet Care & Travel]]></string>
+    <string name="app_name">Pet +Visor</string>
+    <string name="pet_care_travel">Pet management and Advisory</string>
     <string name="enter_email">Enter Email</string>
     <string name="enter_password">Enter Password</string>
     <string name="reset_password">Reset Password ?</string>
@@ -41,5 +41,21 @@
     <string name="pet_location">Pet Location</string>
     <string name="your_location">Your Location</string>
     <string name="save">Save</string>
-    <string name="search_pets_doctors">Search Pets , Doctors</string>
+    <string name="search_pets_doctors">Search Doctors</string>
+    <string name="update_my_pet">Update My Pet</string>
+    <string name="delete_pet">Delete Pet</string>
+    <string name="pick_location">Location</string>
+    <string name="hygiene">Hygiene</string>
+    <string name="health">Health</string>
+    <string name="sold">Sold</string>
+    <string name="hygiene_type">Hygiene Type</string>
+    <string name="hygiene_medical_records">Hygiene/Medical Records</string>
+    <string name="message">Message</string>
+    <string name="alarm">Alarm</string>
+    <string name="owner_whatsapp_contact_number">Owner Whatsapp Contact Number</string>
+    <string name="transport">Transport</string>
+    <string name="travel">Travel</string>
+    <string name="title_activity_travel">TravelActivity</string>
+    <string name="from">From</string>
+    <string name="sell_this_pet">Sell this pet</string>
 </resources>

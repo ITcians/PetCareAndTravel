@@ -3,6 +3,7 @@ package com.pet.app.controller.adapters;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.location.Address;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,12 +18,22 @@ import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.pet.app.R;
 import com.pet.app.models.PetModel;
+import com.pet.app.resources.Apis;
+import com.pet.app.resources.Dry;
+import com.pet.app.resources.UserSession;
 import com.pet.app.views.hegiene.HegieneActivity;
+import com.pet.app.views.map.MapsActivity;
+import com.pet.app.views.pets.BuyPet;
 import com.ramotion.foldingcell.FoldingCell;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
@@ -46,9 +57,10 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetHolder> {
     @Override
     public void onBindViewHolder(@NonNull PetHolder holder, int position) {
         PetModel pet = pets.get(position);
+
         Glide.with(context).load(pet.getPetImage()).fitCenter().into(holder.petImage);
         holder.title.setText(pet.getPetName());
-        holder.address.setText(pet.getPetAddress());
+
         holder.price.setText(String.valueOf(pet.getPetPrice()));
         holder.foldingCell.setOnClickListener(view -> {
             FoldingCell cell = (FoldingCell) view;
@@ -59,6 +71,23 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetHolder> {
             holder.foldingCell.toggle(false);
             setChild(holder, pet);
         });
+
+        if (pet.getPetAddress() == null) {
+            //decode address from geocoder
+            try {
+                Address address = Dry.getAddressFromLocation(new LatLng(pet.getLat(), pet.getLang()), context);
+                String addr = "Unable to locate";
+                if (address != null)
+                    addr = address.getAddressLine(0);
+                pet.setPetAddress(addr);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        holder.address.setText(String.valueOf(pet.getPetAddress()));
+        if (UserSession.getSession(context).getAccountType().equals("Seller"))
+            holder.buyButton.setVisibility(View.GONE);
     }
 
 
@@ -78,7 +107,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetHolder> {
             petHolder.weight.setText(String.valueOf(pet.getPetWeight()));
             petHolder.bodyPrice.setText(String.valueOf(pet.getPetPrice()));
 
-            petHolder.location.setText(pet.getLat() + "," + pet.getLang());
+            petHolder.location.setText("" + pet.getLat() + "," + pet.getLang());
             petHolder.location.setOnClickListener(view1 -> {
                 //open map
                 String uri = String.format(Locale.ENGLISH, "geo:%f,%f", pet.getLat(),
@@ -98,17 +127,33 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetHolder> {
             ImageButton btn = petHolder.bodyHead.findViewById(R.id.petHeaderNext);
             Glide.with(context).load(ActivityCompat.getDrawable(context,
                     R.drawable.ic_baseline_arrow_drop_up_24)).into(btn);
+
             Glide.with(context).load(pet.getPetImage()).fitCenter().into((ImageView)
                     petHolder.bodyHead.findViewById(R.id.petHeaderImage));
+
             btn.setOnClickListener(view -> petHolder.foldingCell.fold(false));
 
-            if (pet.getUserToken() != null && pet.getUserToken().equals("sd")) {
-                //replace with edit
-                petHolder.buyButton.setText("Manage");
-                petHolder.call.setIcon(ActivityCompat.getDrawable(context, R.drawable.ic_baseline_edit_24));
-                petHolder.buyButton.setOnClickListener(view -> ActivityCompat.startActivity(context,
-                        new Intent(context, HegieneActivity.class), null));
-            }
+            //petHolder.call.setIcon(ActivityCompat.getDrawable(context, R.drawable.ic_baseline_edit_24));
+
+            petHolder.buyButton.setOnClickListener(view -> {
+                System.out.println("BUY CLICKED");
+                Intent intent = new Intent(context, MapsActivity.class);
+                try {
+                    intent.putExtra("pet", String.valueOf(pet.toJson()));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                intent.putExtra("buy", "Yes");
+                ActivityCompat.startActivity(context,
+                        intent, null);
+            });
+            petHolder.call.setOnClickListener(v -> {
+                String url = "https://api.whatsapp.com/send?phone=+92" + pet.getContact();
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                ActivityCompat.startActivity(context, i, null);
+
+            });
         }
 
     }
