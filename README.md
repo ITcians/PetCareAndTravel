@@ -12,47 +12,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Buyer / Seller</td>
-                <td>
-                    You can create both buyer and seller accounts for pet sales.
-                </td>
 
-                <td>Pet Health</td>
-                <td>
-                    Manage pet health by medication and vaccine records and remiders
-                </td>
-
-                <td>Pet Hygiene</td>
-                <td>
-                    Manage pet hygiene records like nail nail cuting baithing.
-                </td>
-
-                <td>Sell Pet</td>
-                <td>
-                    Sell your pet
-                </td>
-
-                <td>Buy Pet</td>
-                <td>
-                    Buy a pet
-                </td>
-
-                <td>Arange Travel for Pet</td>
-                <td>
-                    Select pick up and drop up location to arrange travel with direct whatsapp chat with admin
-                </td>
-
-                <td>Doctors Search</td>
-                <td>
-                    Search Doctors for pets
-                </td>
-
-                <td>Admin Portal</td>
-                <td>
-                    Moniter and manage all activities and sales from admin portal
-                </td>
-            </tr>
         </tbody>
     </table>
     <hr>
