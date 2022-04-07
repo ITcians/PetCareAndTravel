@@ -9,22 +9,32 @@
                 <th>Feature</th>
                 <th>Description</th>
         </tr>
+        
         <tr>
                 <td>Buyer / Seller</td>
                 <td>
                     You can create both buyer and seller accounts for pet sales.
                 </td>
         </tr>
+        
         <tr>
-        <td>Pet Health</td>
+                <td>Pet Health</td>
                 <td>
                     Manage pet health by medication and vaccine records and remiders
                 </td>
         </tr>
+        
         <tr>
         <td>Pet Hygiene</td>
                 <td>
                     Manage pet hygiene records like nail nail cuting baithing.
+                </td>
+
+        </tr>
+        <tr>
+                                <td>Sell Pet</td>
+                <td>
+                    Sell your pet
                 </td>
 
         </tr>
