@@ -168,7 +168,7 @@ public class TravelActivity extends FragmentActivity implements OnMapReadyCallba
                 + " and these are directions.\n" +
                 pickLocation +
                 "\nLet me know the price and availability!";
-        String url = "https://api.whatsapp.com/send?phone=+923312780076&text=" + message;
+        String url = "https://api.whatsapp.com/send?phone=YOUR_PHONE&text=" + message;
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(url));
         startActivity(i);
