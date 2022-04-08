@@ -1,7 +1,6 @@
 # PetCareAndTravel
 
 <body>
-
     <h3>Pet Care and Travel app for android</h3>
     <p>PetCAT is an anroid app made on Java with Laravel PHP server. Basically Pet CAT (Care and Travel) focus pet
         management , health ,hygiene and sales.</p>
@@ -10,8 +9,7 @@
     <p>These are the features implmeneted in this project:</p>
     <table>
         <thead>
-            <tr>
-                <th>Feature</th>
+            <tr><th>Feature</th>
                 <th>Description</th>
             </tr>
         </thead>
