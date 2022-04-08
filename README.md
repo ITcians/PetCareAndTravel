@@ -59,7 +59,7 @@
         </tbody>
     </table>
     <hr>
-    <h4>Looking for more interesting things ? Why don't you just visit our:</h4>
+    <h4>Looking for more interesting things ? Why don't you just visit our channels:</h4>
     <a href='https://facebook.com/itcianx'>
         <img src='https://cdn-icons-png.flaticon.com/512/5968/5968764.png' width="30" height="30">
     </a>
