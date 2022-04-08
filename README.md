@@ -31,13 +31,7 @@
                 </td>
 
         </tr>
-        <tr>
-                                <td>Sell Pet</td>
-                <td>
-                    Sell your pet
-                </td>
 
-        </tr>
 </table>
 <img src='https://itcians.com/wp-content/uploads/2022/02/Logo-of-ITcians-01-scaled.jpg'
         style="width:100%;height:50%">
