@@ -23,15 +23,6 @@
                     Manage pet health by medication and vaccine records and remiders
                 </td>
         </tr>
-        
-        <tr>
-        <td>Pet Hygiene</td>
-                <td>
-                    Manage pet hygiene records like nail nail cuting baithing.
-                </td>
-
-        </tr>
-
 </table>
 <img src='https://itcians.com/wp-content/uploads/2022/02/Logo-of-ITcians-01-scaled.jpg'
         style="width:100%;height:50%">
