@@ -9,7 +9,8 @@
     <p>These are the features implmeneted in this project:</p>
     <table>
         <thead>
-            <tr><th>Feature</th>
+            <tr>
+                <th>Feature</th>
                 <th>Description</th>
             </tr>
         </thead>
@@ -19,30 +20,37 @@
                 <td>
                     You can create both buyer and seller accounts for pet sales.
                 </td>
-                <td>Pet Health</td>
+                </tr>
+                <tr><td>Pet Health</td>
                 <td>
                     Manage pet health by medication and vaccine records and remiders
                 </td>
+            </tr><tr>
                 <td>Pet Hygiene</td>
                 <td>
                     Manage pet hygiene records like nail nail cuting baithing.
                 </td>
+            </tr><tr>
                 <td>Sell Pet</td>
                 <td>
                     Sell your pet
                 </td>
+            </tr><tr>
                 <td>Buy Pet</td>
                 <td>
                     Buy a pet
                 </td>
+            </tr><tr>
                 <td>Arange Travel for Pet</td>
                 <td>
                     Select pick up and drop up location to arrange travel with direct whatsapp chat with admin
                 </td>
+            </tr><tr>
                 <td>Doctors Search</td>
                 <td>
                     Search Doctors for pets
                 </td>
+            </tr><tr>
                 <td>Admin Portal</td>
                 <td>
                     Moniter and manage all activities and sales from admin portal
