@@ -9,7 +9,6 @@
     <a href='https://www.youtube.com/channel/UCFuPSGbeycB4ZPAFhIYQfQA'>
         <img src='https://cdn-icons-png.flaticon.com/512/1384/1384060.png' width="30" height="30">
     </a>
-
     <hr>
     <img src='https://itcians.com/wp-content/uploads/2022/02/Logo-of-ITcians-01-scaled.jpg'
         style="width:100%;height:50%">
